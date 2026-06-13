@@ -1,0 +1,67 @@
+header{
+  background: linear-gradient(to right,#2b1a11,#3d2b1f,#2b1a11);
+  font-family: 'Playfair Display',Georgia,serif;
+}
+body{
+  margin:0px;
+}
+#logo{
+  color: #d4b896;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  padding:10px;
+}
+.navlinks{
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+.navlinks a{
+  color: #d4b896;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.navlinks a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #f4d6a0;
+  transition: width 0.3s ease;
+}
+
+.navlinks a:hover{
+  color: #f4d6a0;
+}
+
+.navlinks a:hover::after{
+  width: 100%;
+}
+#darkmodebtn{
+  background-color:#7c5a3a;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#darkmodebtn:hover{
+  background: #7c5a3a;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(212,184,150,0.5);
+}
+#darkmodebtn:active{
+  transform: scale(0.95);
+}
