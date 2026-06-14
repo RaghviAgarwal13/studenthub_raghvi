@@ -4,6 +4,7 @@ header{
 }
 body{
   margin:0px;
+  background-color: #f5ede0;
 }
 #logo{
   color: #d4b896;
@@ -44,6 +45,7 @@ body{
 
 .navlinks a:hover{
   color: #f4d6a0;
+  font-size: 1.1em;
 }
 
 .navlinks a:hover::after{
@@ -64,4 +66,61 @@ body{
 }
 #darkmodebtn:active{
   transform: scale(0.95);
+}
+/* Hero Section */
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Playfair Display',Georgia,serif;
+}
+.hero-left{
+  margin:0px;
+  padding:30px 80px;
+  color: #7c5a3a;
+}
+#headinghome{
+  color: #3d2b1f;
+  font-size: 3em;
+  font-family: 'Inter',system-ui, sans-serif;
+}
+#phome{
+  font-family: 'Inter',system-ui, sans-serif;
+  margin-bottom: 40px;
+  margin-right: 70px;
+  font-size: 1.2em;
+}
+.hero-buttons{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.btn{
+   text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px 36px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid;
+    color: #7c5a3a;
+    border-color: #7c5a3a;
+}
+.btn:hover{
+  background-color: #2b1a11;
+  color: #d4b896;
+}
+.hero-right{
+  padding:40px 60px;
+}
+.hero-right img{
+    width: 1000px;   /* control size */
+    max-width: 100%; /* keeps it responsive */
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
