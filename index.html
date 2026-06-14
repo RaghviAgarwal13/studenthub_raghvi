@@ -19,10 +19,10 @@
     <button id="darkmodebtn">🌙</button>
   </nav>
  </header>
- <section class="hero">
+ <section class="hero" id="home">
 
   <div class="hero-left">
-    <h1 id="headinghome">Your Study Cafe☕</h1>
+    <div id="headinghome">Your Study Cafe☕</div>
     <p id="phome">StudentHub is one cozy place for all of your student life-track tasks, monitor goals and a lot more.Consider it as your own campus productivity hub!!</p>
     <div class="hero-buttons">
 
@@ -41,7 +41,96 @@
     <img src="images/home1.png" alt="sticynoteimg">
 
   </div>
+  </section>
+  <section class="dashboard-section" id="dashboard">
 
-</section>
+    <h3>YOUR DASHBOARD</h3>
+    <h1>Everything at a Glance✨</h1>
+
+    <div class="dashboard-grid">
+
+        <!-- Weather -->
+        <div class="card weather-card">
+            <span class="icon">🌤️</span>
+            <h3>WEATHER</h3>
+
+            <p class="big-text" id="temp">31°C</p>
+
+            <p>Lucknow</p>
+            <p id="weather-desc">Sunny</p>
+
+            <button id="refreshWeather">
+                Refresh ↻
+            </button>
+        </div>
+
+        <!-- Tasks -->
+        <div class="card task-card">
+            <span class="icon">✅</span>
+            <h3>TASKS TODAY</h3>
+
+            <p class="big-text">
+                <span id="doneTasks">3</span> / 7
+            </p>
+
+            <p>4 remaining</p>
+
+            <div class="progress-bar">
+                <div class="progress" style="width:42%"></div>
+            </div>
+        </div>
+
+        <!-- Goals -->
+        <div class="card goal-card">
+            <span class="icon">🎯</span>
+            <h3>WEEKLY GOALS</h3>
+
+            <p class="big-text">2 left</p>
+
+            <p>5 of 7 done ✓</p>
+
+            <div class="progress-bar">
+                <div class="progress goal-progress"></div>
+            </div>
+        </div>
+
+        <!-- Streak -->
+        <div class="card streak-card">
+            <span class="icon">🔥</span>
+            <h3>STUDY STREAK</h3>
+
+            <p class="big-text" id="streak">
+                7 days
+            </p>
+
+            <p>Keep Going!</p>
+        </div>
+
+    </div>
+
+    <!-- Quote Card -->
+    <div class="quote-card">
+        <div class="quote-content">
+                    <h3>☕ Quote of the Day</h3>
+
+        <p id="quote">
+            "Don't watch the clock; do what it does. Keep going."
+        </p>
+
+        <p id="author">- Sam Levenson</p>
+
+        <button id="newQuote">
+            New Quote ↻
+        </button>
+
+        </div>
+        <div class="quote-image">
+            <img src="images/studydesk.jpeg" alt="a study desk image">
+
+        </div>
+    </div>
+
+  </section>
+ <script src="index.js"></script>
 </body>
 </html>
