@@ -42,3 +42,73 @@ darkbtn.addEventListener("click",()=>{
         darkbtn.textContent="🌙";
     }
 })
+
+// github profile fetcher
+
+const githubBtn=document.getElementById("githubBtn");
+const githubInput=document.getElementById("githubInput");
+const githubProfile=document.getElementById("githubProfile");
+async function fetchGithubProfile(){
+    const username=githubInput.value.trim();
+    if(username===""){
+        githubProfile.innerHTML="<p>Please enter a username.</p>";
+        return;
+    }
+    githubProfile.innerHTML=`<p>Loading profile<p>`
+    try{
+        const response=await fetch( `https://api.github.com/users/${username}`);
+        const data=await response.json();
+        if(data.message === "Not Found"){
+            githubProfile.innerHTML=`<p>User not found.<p>`;
+            return;
+        }
+        githubProfile.innerHTML=` 
+         <div class="github-card">
+
+            <img
+            src="${data.avatar_url}"
+            alt="${data.login}">
+
+            <h2>${data.login}</h2>
+
+            <p>
+            👥 Followers: ${data.followers}
+            </p>
+
+            <p>
+            ➡️ Following: ${data.following}
+            </p>
+
+            <p>
+            📁 Public Repositories:
+            ${data.public_repos}
+            </p>
+
+            <p>
+            📍 ${data.location || "Not Available"}
+            </p>
+
+            <a
+            href="${data.html_url}"
+            target="_blank">
+
+            Visit Profile
+
+            </a>
+            </div>
+
+        `;
+
+      }
+      catch(error){
+         githubProfile.innerHTML = `
+            <p>Something went wrong.</p>
+        `;
+
+        console.log(error);
+      }
+}
+githubBtn.addEventListener(
+    "click",
+    fetchGithubProfile
+);

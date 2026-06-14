@@ -207,7 +207,7 @@ body{
     color:#d4b896;
     padding:30px;
     border-radius:20px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 .quote-image img{
     width: 100%;
@@ -229,11 +229,12 @@ html {
 /* About section */
 .aboutclass{
   text-align: center;
-  font-family: 'Playfair Display',Georgia,serif;
+  font-family:'Inter',system-ui, sans-serif;
   padding: 60px;
   margin: 50px;
   margin-bottom: 100px;
   color:#7c5a3a;
+  font-size: 1.2em;
 }
 .aboutclass h1{
   color: #3d2b1f;
@@ -344,6 +345,89 @@ html {
     }
 
 }
+/* Github Profile fetcher */
+.github-section{
+    text-align:center;
+    padding:10px;
+    color:#7c5a3a;
+    font-family:'Inter',system-ui, sans-serif;
+}
+.github-section h1{
+    color: #3d2b1f;
+    font-size: 3em
+}
+.github-search{
+    margin-top:20px;
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+#githubInput{
+
+    padding:12px;
+
+    width:250px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    font-size:1rem;
+}
+
+#githubBtn{
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:#2b1a11;
+
+    color:#d4b896;
+}
+
+#githubProfile{
+
+    margin-top:30px;
+}
+.github-card{
+
+    max-width:400px;
+
+    margin:0 auto;
+
+    background:#f9e1b4;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.github-card img{
+
+    width:120px;
+
+    border-radius:50%;
+}
+
+.github-card a{
+
+    color:#7c5a3a;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
 /* Dark Mode */
 .dark-mode{
   background-color:#1a1108;
@@ -374,5 +458,20 @@ html {
 }
 
 .dark-mode .aboutclass h1{
+    color:#d4b896;
+}
+
+.dark-mode #githubInput{
+  background: #2a1c0e;
+  color: #f5ede0;
+  border:1px solid #3d2b1f;
+}
+.dark-mode .github-card{
+  background: #2a1c0e;
+  color: #f5ede0;
+  border:1px solid #3d2b1f
+
+}
+.dark-mode .github-section h1{
     color:#d4b896;
 }
