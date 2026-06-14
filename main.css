@@ -5,6 +5,9 @@ header{
 body{
   margin:0px;
   background-color: #f5ede0;
+  transition:
+  background-color 0.3s ease,
+  color 0.3s ease;
 }
 .logo{
   color: #d4b896;
@@ -340,4 +343,36 @@ html {
         text-align: center;
     }
 
+}
+/* Dark Mode */
+.dark-mode{
+  background-color:#1a1108;
+  color:#f5ede0;
+  transition:
+   background-color 0.4s ease,
+   color 0.4s ease;
+
+}
+.dark-mode .card{
+    background:#221609;
+    color:#f5ede0;
+    border:1px solid #3d2b1f;
+    transition:0.3s;
+}
+.dark-mode #headinghome{
+    color:#d4b896;
+}
+
+.dark-mode #phome{
+    color:#7c5a3a;
+}
+.dark-mode #dashboard h1{
+    color:#d4b896;
+}
+.dark-mode .aboutclass{
+    color:#7c5a3a;
+}
+
+.dark-mode .aboutclass h1{
+    color:#d4b896;
 }

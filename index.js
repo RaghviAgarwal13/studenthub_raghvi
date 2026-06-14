@@ -29,3 +29,16 @@ document.getElementById("quote").textContent =`"${random.text}"`;
 document.getElementById("author").textContent =`- ${random.author}`;
 
 });
+
+// dark mode toggle
+
+const darkbtn=document.getElementById("darkmodebtn");
+darkbtn.addEventListener("click",()=>{
+    document.body.classList.toggle("dark-mode");
+    if(document.body.classList.contains("dark-mode")){
+        darkbtn.textContent="☀️";
+    }
+    else{
+        darkbtn.textContent="🌙";
+    }
+})
