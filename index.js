@@ -63,28 +63,29 @@ async function fetchGithubProfile(){
             return;
         }
         githubProfile.innerHTML=` 
-         <div class="github-card">
+         <div class="github-card flex flex-col items-center text-center">
 
             <img
             src="${data.avatar_url}"
-            alt="${data.login}">
+            alt="${data.login}"
+            class="w-32 h-32 rounded-full mb-4">
 
-            <h2>${data.login}</h2>
+            <h2 class="font-bold p-2">${data.login}</h2>
 
-            <p>
-            👥 Followers: ${data.followers}
+            <p class="mb-1">
+            Followers: ${data.followers}
             </p>
 
-            <p>
-            ➡️ Following: ${data.following}
+            <p class="mb-1">
+            Following: ${data.following}
             </p>
 
-            <p>
-            📁 Public Repositories:
+            <p class="mb-1">
+            Public Repositories:
             ${data.public_repos}
             </p>
 
-            <p>
+            <p class="mb-1">
             📍 ${data.location || "Not Available"}
             </p>
 
@@ -112,3 +113,4 @@ githubBtn.addEventListener(
     "click",
     fetchGithubProfile
 );
+
