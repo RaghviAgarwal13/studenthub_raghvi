@@ -487,3 +487,17 @@ html {
     grid-template-columns: 1fr;
   }
 }
+.dark-mode .newcomp{
+  background:#2a1c0e;
+  border:1px solid #3d2b1f
+}
+.dark-mode .newcomp h2{
+   color:#d4b896;
+}
+.dark-mode .inputrow{
+  background-color: #3d2b1f;
+  color: #d4b896;
+}
+.dark-mode #tasklist{
+  color: #d4b896;
+}

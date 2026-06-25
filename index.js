@@ -137,7 +137,7 @@ function renderTasks() {
 
   tasks.forEach((task, index) => {
     const li = document.createElement('li');
-    li.className = `flex items-center gap-3 bg-amber-50 px-4 py-2 rounded-xl border border-amber-200 group`;
+    li.className = `inputrow flex items-center gap-3 bg-amber-50 px-4 py-2 rounded-xl border border-amber-200 group`;
 
     li.innerHTML = `
       <input
@@ -147,7 +147,7 @@ function renderTasks() {
         data-index="${index}"
         onchange="toggleTask(${index})"
       />
-      <span class="flex-1 text-cafe-brown font-inter text-sm ${task.done ? 'line-through opacity-50' : ''}">
+      <span id="tasklist" class="flex-1 text-cafe-brown font-inter text-sm ${task.done ? 'line-through opacity-50' : ''}">
         ${task.text}
       </span>
       <button
@@ -185,7 +185,7 @@ function deleteTask(index) {
   renderTasks();
 }
 
-// Add on Enter key too
+// we can Add tasks on pressing the Enter key
 document.getElementById('taskInput').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') addTask();
 });
@@ -194,3 +194,111 @@ document.getElementById('addTaskBtn').addEventListener('click', addTask);
 
 // Load tasks on page load
 renderTasks();
+
+// POMODORO TIMER
+
+const FOCUS_TIME = 25 * 60;
+const BREAK_TIME = 5 * 60;
+
+let timerInterval = null;
+let secondsLeft = FOCUS_TIME;
+let isRunning = false;
+let isFocusMode = true;
+
+// Load session count — reset if it's a new day
+function loadSessionCount() {
+  const saved = JSON.parse(localStorage.getItem('sh_pomodoro')) || {};
+  const today = new Date().toDateString();
+
+  if (saved.date !== today) {
+    return 0; // new day, reset
+  }
+  return saved.count || 0;
+}
+
+let sessionCount = loadSessionCount();
+
+function saveSessionCount() {
+  localStorage.setItem('sh_pomodoro', JSON.stringify({
+    date: new Date().toDateString(),
+    count: sessionCount
+  }));
+}
+
+function updateTimerDisplay() {
+  const mins = Math.floor(secondsLeft / 60).toString().padStart(2, '0');
+  const secs = (secondsLeft % 60).toString().padStart(2, '0');
+  document.getElementById('timerDisplay').textContent = `${mins}:${secs}`;
+  document.getElementById('sessionCount').textContent = `${sessionCount} `;
+}
+
+function setMode(focus) {
+  isFocusMode = focus;
+  secondsLeft = focus ? FOCUS_TIME : BREAK_TIME;
+  clearInterval(timerInterval);
+  isRunning = false;
+
+  document.getElementById('timerLabel').textContent = focus ? 'Ready to focus?' : 'Take a breather!';
+
+  // Toggle button styles
+  document.getElementById('focusMode').className = focus
+    ? 'flex-1 py-2 rounded-xl bg-cafe-brown text-cafe-gold font-semibold text-sm transition-all'
+    : 'flex-1 py-2 rounded-xl bg-transparent border border-cafe-mid text-cafe-mid font-semibold text-sm transition-all';
+
+  document.getElementById('breakMode').className = !focus
+    ? 'flex-1 py-2 rounded-xl bg-cafe-brown text-cafe-gold font-semibold text-sm transition-all'
+    : 'flex-1 py-2 rounded-xl bg-transparent border border-cafe-mid text-cafe-mid font-semibold text-sm transition-all';
+
+  updateTimerDisplay();
+}
+
+function startTimer() {
+  if (isRunning) return;
+  isRunning = true;
+  document.getElementById('timerLabel').textContent = isFocusMode ? 'Focusing...' : 'On break...';
+
+  timerInterval = setInterval(() => {
+    secondsLeft--;
+    updateTimerDisplay();
+
+    if (secondsLeft <= 0) {
+      clearInterval(timerInterval);
+      isRunning = false;
+
+      if (isFocusMode) {
+        sessionCount++;
+        saveSessionCount();
+        document.getElementById('timerLabel').textContent = 'Session complete!';
+        updateTimerDisplay();
+        // auto switch to break
+        setTimeout(() => setMode(false), 1500);
+      } else {
+        document.getElementById('timerLabel').textContent = 'Break over! Ready?';
+        setTimeout(() => setMode(true), 1500);
+      }
+    }
+  }, 1000);
+}
+
+function pauseTimer() {
+  clearInterval(timerInterval);
+  isRunning = false;
+  document.getElementById('timerLabel').textContent = 'Paused ∥';
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  isRunning = false;
+  secondsLeft = isFocusMode ? FOCUS_TIME : BREAK_TIME;
+  document.getElementById('timerLabel').textContent = isFocusMode ? 'Ready to focus?' : 'Take a breather!';
+  updateTimerDisplay();
+}
+
+document.getElementById('startBtn').addEventListener('click', startTimer);
+document.getElementById('pauseBtn').addEventListener('click', pauseTimer);
+document.getElementById('resetBtn').addEventListener('click', resetTimer);
+document.getElementById('focusMode').addEventListener('click', () => setMode(true));
+document.getElementById('breakMode').addEventListener('click', () => setMode(false));
+
+// Init display
+updateTimerDisplay();
