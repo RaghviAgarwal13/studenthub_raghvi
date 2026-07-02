@@ -1,0 +1,503 @@
+header{
+  background: linear-gradient(to right,#2b1a11,#3d2b1f,#2b1a11);
+  font-family: 'Playfair Display',Georgia,serif;
+}
+body{
+  margin:0px;
+  background-color: #f5ede0;
+  transition:
+  background-color 0.3s ease,
+  color 0.3s ease;
+}
+.logo{
+  color: #d4b896;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  padding:10px;
+}
+.navlinks{
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+.navlinks a{
+  color: #d4b896;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.navlinks a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #f4d6a0;
+  transition: width 0.3s ease;
+}
+
+.navlinks a:hover{
+  color: #f4d6a0;
+  font-size: 1.1em;
+}
+
+.navlinks a:hover::after{
+  width: 100%;
+}
+#darkmodebtn{
+  background-color:#7c5a3a;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#darkmodebtn:hover{
+  background: #7c5a3a;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(212,184,150,0.5);
+}
+#darkmodebtn:active{
+  transform: scale(0.95);
+}
+/* Hero Section */
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Playfair Display',Georgia,serif;
+    gap: 40px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+.hero-left{
+    flex: 1.3;  
+    padding: 30px 80px;
+}
+.hero-left{
+  margin:0px;
+  padding:30px 80px;
+  color: #7c5a3a;
+}
+#headinghome{
+  color: #3d2b1f;
+  font-size: 3em;
+  font-family: 'Inter',system-ui, sans-serif;
+  font-weight: bold;
+}
+#phome{
+  font-family: 'Inter',system-ui, sans-serif;
+  margin-bottom: 40px;
+  margin-right: 70px;
+  font-size: 1.2em;
+}
+.hero-buttons{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.btn{
+   text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px 36px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid;
+    color: #7c5a3a;
+    border-color: #7c5a3a;
+}
+.btn:hover{
+  background-color: #2b1a11;
+  color: #d4b896;
+}
+.hero-right{
+  padding:40px 60px;
+}
+.hero-right img{   
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+/* Dashboard */
+#dashboard{
+  margin:10px;
+  padding:20px;
+  font-family: 'Playfair Display',Georgia,serif;
+  color: #5f4330;
+}
+#dashboard h1{
+  color: #3d2b1f;
+}
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+.card{
+    background:#f9e1b4;
+    padding:25px;
+    border-radius:20px;
+    border:1px solid #ddd;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+.icon{
+  font-size: 1.5em;
+}
+#refreshWeather{
+   background-color: #2b1a11;
+   color: #d4b896;
+   border-radius: 10px;
+   font-size: 1.2em;
+   cursor:pointer;
+   border: 0px;
+}
+.big-text{
+    font-size:2rem;
+    font-weight:bold;
+    margin:10px 0;
+}
+.progress-bar{
+    width:100%;
+    height:8px;
+    background:#eee;
+    border-radius:20px;
+    margin-top:15px;
+}
+
+.progress{
+    height:100%;
+    width:42%;
+    background:#4CAF50;
+    border-radius:20px;
+}
+
+.goal-progress{
+    width:70%;
+    background:#f4a300;
+}
+.quote-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-top:30px;
+    background-color: #2b1a11;
+    color:#d4b896;
+    padding:30px;
+    border-radius:20px;
+    margin-bottom: 10px;
+}
+.quote-image img{
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 5px;
+}
+#newQuote{
+   background-color: #4c3627;
+   color: #d4b896;
+   border-radius: 10px;
+   font-size: 1.2em;
+   cursor:pointer;
+   border: 0px;
+}
+html {
+    scroll-behavior: smooth;
+}
+/* About section */
+.aboutclass{
+  text-align: center;
+  font-family:'Inter',system-ui, sans-serif;
+  padding: 60px;
+  margin: 50px;
+  margin-bottom: 100px;
+  color:#7c5a3a;
+  font-size: 1.2em;
+}
+.aboutclass h1{
+  color: #3d2b1f;
+  font-size: 3em;
+}
+/* footer */
+#foot{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  padding:10px;
+  background: linear-gradient(to right,#2b1a11,#3d2b1f,#2b1a11);
+  font-family: 'Playfair Display',Georgia,serif;
+  color: #d4b896;
+}
+#foot a{
+  color: #d4b896;
+  text-decoration:none;
+}
+@media (max-width:768px){
+
+    /* NAVBAR */
+
+    .navbar{
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .navlinks{
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    /* HERO SECTION */
+
+    .hero{
+        flex-direction: column;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .hero-left{
+        padding: 20px;
+    }
+
+    .hero-right{
+        padding: 20px;
+    }
+
+    #headinghome{
+        font-size: 2.2rem;
+    }
+
+    #phome{
+        margin-right: 0;
+        font-size: 1rem;
+    }
+
+
+    /* HERO BUTTONS */
+
+    .hero-buttons{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn{
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+
+
+    /* QUOTE SECTION */
+
+    .quote-card{
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .quote-image img{
+        max-width: 100%;
+    }
+
+
+    /* ABOUT */
+
+    .aboutclass{
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .aboutclass h1{
+        font-size: 2rem;
+    }
+
+
+    /* FOOTER */
+
+    #foot{
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+}
+/* Github Profile fetcher */
+.github-section{
+    text-align:center;
+    padding:10px;
+    color:#7c5a3a;
+    font-family:'Inter',system-ui, sans-serif;
+}
+.github-section h1{
+    color: #3d2b1f;
+    font-size: 3em
+}
+.github-search{
+    margin-top:20px;
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+#githubInput{
+
+    padding:12px;
+
+    width:250px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    font-size:1rem;
+}
+
+#githubBtn{
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:#2b1a11;
+
+    color:#d4b896;
+}
+
+#githubProfile{
+
+    margin-top:30px;
+}
+.github-card{
+
+    max-width:400px;
+
+    margin:0 auto;
+
+    background:#f9e1b4;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.github-card img{
+
+    width:120px;
+
+    border-radius:50%;
+}
+
+.github-card a{
+
+    color:#7c5a3a;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+/* Dark Mode */
+.dark-mode{
+  background-color:#1a1108;
+  color:#f5ede0;
+  transition:
+   background-color 0.4s ease,
+   color 0.4s ease;
+
+}
+.dark-mode .card{
+    background:#221609;
+    color:#f5ede0;
+    border:1px solid #3d2b1f;
+    transition:0.3s;
+}
+.dark-mode #headinghome{
+    color:#d4b896;
+}
+
+.dark-mode #phome{
+    color:#7c5a3a;
+}
+.dark-mode #dashboard h1{
+    color:#d4b896;
+}
+.dark-mode .aboutclass{
+    color:#7c5a3a;
+}
+
+.dark-mode .aboutclass h1{
+    color:#d4b896;
+}
+
+.dark-mode #githubInput{
+  background: #2a1c0e;
+  color: #f5ede0;
+  border:1px solid #3d2b1f;
+}
+.dark-mode .github-card{
+  background: #2a1c0e;
+  color: #f5ede0;
+  border:1px solid #3d2b1f
+
+}
+.dark-mode .github-section h1{
+    color:#d4b896;
+}
+.components-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .components-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.dark-mode .newcomp{
+  background:#2a1c0e;
+  border:1px solid #3d2b1f
+}
+.dark-mode .newcomp h2{
+   color:#d4b896;
+}
+.dark-mode .inputrow{
+  background-color: #3d2b1f;
+  color: #d4b896;
+}
+.dark-mode #tasklist{
+  color: #d4b896;
+}
