@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Navbar = () => {
+const Navbar = ({darkMode, toggleDarkMode}) => {
   return (
     <header>
      <nav className="navbar" id="home">
@@ -10,7 +10,7 @@ const Navbar = () => {
         <li><a href="#dashboard">DashBoard</a></li>
         <li><a href="#about">About</a></li>
     </ul>
-    <button id="darkmodebtn">🌙</button>
+    <button id="darkmodebtn" onClick={toggleDarkMode}>{darkMode ? '☀️' :'🌙'}</button>
   </nav>
  </header>
   )
