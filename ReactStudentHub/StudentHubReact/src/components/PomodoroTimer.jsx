@@ -102,6 +102,9 @@ const PomodoroTimer = () => {
 
   const handleFocusChange = (e) => {
     var value = Number(e.target.value)
+    if (value < 1){
+      return
+    }
     setFocusMinutes(value)
     if (isFocusMode === true) {
       setSecondsLeft(value * 60)
@@ -110,6 +113,9 @@ const PomodoroTimer = () => {
 
   const handleBreakChange = (e) => {
     var value = Number(e.target.value)
+    if(value < 1 ){
+      return
+    }
     setBreakMinutes(value)
     if (isFocusMode === false) {
       setSecondsLeft(value * 60)
