@@ -30,11 +30,6 @@ const Navbar = ({darkMode, toggleDarkMode}) => {
     </ul>
     <Link to="/announcements" onClick={handleBellClick}>
             <i className="fa-solid fa-bell text-xl" style={{ color: '#d4b896' }}></i>
-            {unreadCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                {unreadCount}
-              </span>
-            )}
           </Link>
     <button id="darkmodebtn" onClick={toggleDarkMode}>{darkMode ? '☀️' :'🌙'}</button>
   </nav>

@@ -102,7 +102,7 @@ const PomodoroTimer = () => {
 
   const handleFocusChange = (e) => {
     var value = Number(e.target.value)
-    if (value < 1){
+    if (value < 1){//validation
       return
     }
     setFocusMinutes(value)
@@ -147,7 +147,7 @@ const PomodoroTimer = () => {
             value={focusMinutes}
             onChange={handleFocusChange}
             disabled={isRunning}
-            className="w-full px-3 py-1 rounded-lg border border-amber-300 bg-amber-50 text-cafe-brown text-sm"
+            className="inputrow w-full px-3 py-1 rounded-lg border border-amber-300 bg-amber-50 text-cafe-brown text-sm"
           />
         </div>
         <div className="flex-1">
@@ -158,7 +158,7 @@ const PomodoroTimer = () => {
             value={breakMinutes}
             onChange={handleBreakChange}
             disabled={isRunning}
-            className="w-full px-3 py-1 rounded-lg border border-amber-300 bg-amber-50 text-cafe-brown text-sm"
+            className="inputrow w-full px-3 py-1 rounded-lg border border-amber-300 bg-amber-50 text-cafe-brown text-sm"
           />
         </div>
       </div>
@@ -179,27 +179,27 @@ const PomodoroTimer = () => {
       </div>
 
       <div className="text-center mb-6">
-        <div className="text-7xl font-bold font-playfair tracking-tight">
+        <div className=" pmdr text-7xl font-bold font-playfair tracking-tight">
           {formatTime(secondsLeft)}
         </div>
         <p className="text-cafe-mid font-semibold mt-2">{label}</p>
       </div>
 
       <div className="flex gap-3 justify-center mb-6">
-        <button onClick={startTimer} className="border border-cafe-mid text-cafe-brown px-6 py-2 rounded-xl font-semibold hover:bg-cafe-brown transition-all hover:text-cafe-gold">
+        <button onClick={startTimer} className=" pmdr border border-cafe-mid text-cafe-brown px-6 py-2 rounded-xl font-semibold hover:bg-cafe-brown transition-all hover:text-cafe-gold">
           Start
         </button>
-        <button onClick={pauseTimer} className="border border-cafe-mid text-cafe-brown px-6 py-2 rounded-xl font-semibold hover:bg-cafe-brown transition-all hover:text-cafe-gold">
+        <button onClick={pauseTimer} className=" pmdr border border-cafe-mid text-cafe-brown px-6 py-2 rounded-xl font-semibold hover:bg-cafe-brown transition-all hover:text-cafe-gold">
           Pause
         </button>
-        <button onClick={resetTimer} className="border border-cafe-mid text-cafe-brown px-6 py-2 rounded-xl font-semibold hover:bg-cafe-brown transition-all hover:text-cafe-gold">
+        <button onClick={resetTimer} className="pmdr border border-cafe-mid text-cafe-brown px-6 py-2 rounded-xl font-semibold hover:bg-cafe-brown transition-all hover:text-cafe-gold">
           Reset
         </button>
       </div>
 
       <div className="text-center border-t border-amber-900 pt-4">
         <p className="text-cafe-mid font-semibold text-sm">Sessions completed today</p>
-        <p className="text-6xl font-bold font-playfair tracking-tight">{sessionCount}</p>
+        <p className=" pmdr text-6xl font-bold font-playfair tracking-tight">{sessionCount}</p>
       </div>
     </div>
   )

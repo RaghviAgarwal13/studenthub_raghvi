@@ -23,3 +23,13 @@ In week 2, StudentHub was expanded from a landing page into an interactive produ
 -Persistent data storage using local storage
 -Tailwind CSS for UI consistency
 This was built using html,css,javascript,Tailwind CSS localStorage API, AND JSON(JSON.stringify() and JSON.parse())
+
+# WEEK 3
+In week 3, StudentHub was converted into a React site.
+-Converted the entire project into a React app using Vite
+-Split the UI into reusable components (Navbar, Footer, TaskManager, PomodoroTimer, GithubFinder) and pages (Home, Dashboard, About)
+-Rebuilt the Task Manager and Pomodoro Timer using useState and useEffect for dynamic state
+-Added React Router for client-side navigation between Home, Dashboard and About pages
+-Built a custom useLocalStorage hook to handle data persistence across components
+-Added an Announcements and Events page
+This was built using React, Vite, React Router, React Hooks (useState, useEffect), and custom hooks.

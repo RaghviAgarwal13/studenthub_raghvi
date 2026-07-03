@@ -19,7 +19,7 @@ const GithubFinder = () => {
     setErrorMsg('')
     setProfile(null)
 
-    try {
+    try {//error handling
       var response = await fetch('https://api.github.com/users/' + trimmedUsername)
       var data = await response.json()
 
@@ -45,7 +45,7 @@ const GithubFinder = () => {
   }
 
   return (
-    <section className="github-section">
+    <section className="github-section mt-10 mb-10">
       <h1 className="mt-2 mb-1 p-2 font-playfair font-bold text-3xl">
         <i className="fa-solid fa-magnifying-glass"></i> Github Profile Finder
       </h1>
