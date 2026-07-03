@@ -1,18 +1,13 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const TaskManager = () => {
-  const [tasks, setTasks] = useState(() => {
-  const saved = localStorage.getItem("sh_tasks");
-  return saved ? JSON.parse(saved) : [];
-})//// load tasks from localStorage 
+  const [tasks, setTasks] = useLocalStorage('sh_tasks', [])
   const [inputValue, setInputValue] = useState('')
   const [editingId, setEditingId] = useState(null)
   const [editValue, setEditValue] = useState('')
 
-  useEffect(() =>{//to save tasks to local storage whenever they change
-    localStorage.setItem('sh_tasks',JSON.stringify(tasks))
-  },[tasks])
   function addTask(){
     const text=inputValue.trim()
     if(!text) return
@@ -68,7 +63,6 @@ const TaskManager = () => {
         <div className=" newcomp bg-cafe-card rounded-2xl p-6 border border-amber-200 shadow-md min-h-[518px]" id="taskmanager">
     <h2 className="text-3xl font-playfair font-bold text-cafe-brown mb-4">Task Manager</h2>
 
-    {/* <!-- Input Row --> */}
     <div className=" flex gap-2 mb-4">
       <input
         type="text"
@@ -95,7 +89,6 @@ const TaskManager = () => {
             className="inputrow flex items-center gap-3 bg-amber-50 px-4 py-2 rounded-xl border border-amber-200 group"
           >
             {editingId === task.id ? (
-              // EDIT MODE
               <>
                 <input
                   type="text"
@@ -119,7 +112,6 @@ const TaskManager = () => {
                 </button>
               </>
             ) : (
-              // DISPLAY MODE
               <>
                 <input
                   type="checkbox"
@@ -137,7 +129,7 @@ const TaskManager = () => {
                   onClick={() => startEditing(task)}
                   className="text-amber-400 hover:text-amber-700 transition-all text-sm opacity-0 group-hover:opacity-100"
                 >
-                 <span class="material-symbols-outlined">edit</span>
+                 <span className="material-symbols-outlined">edit</span>
                 </button>
                 <button
                   onClick={() => deleteTask(task.id)}
