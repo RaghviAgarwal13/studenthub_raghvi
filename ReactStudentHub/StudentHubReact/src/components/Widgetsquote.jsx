@@ -1,6 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+const quotes = [
+  {
+    text: "Don't watch the clock; do what it does. Keep going.",
+    author: "Sam Levenson"
+  },
+  {
+    text: "Success is the sum of small efforts repeated daily.",
+    author: "Robert Collier"
+  },
+  {
+    text: "Believe you can and you're halfway there.",
+    author: "Theodore Roosevelt"
+  },
+  {
+    text: "Learning never exhausts the mind.",
+    author: "Leonardo da Vinci"
+  }
+]
 
 const Widgetsquote = () => {
+  const [currentQuote, setCurrentQuote] = useState(quotes[0])
+
+  const getNewQuote = () => {
+    var randomIndex = Math.floor(Math.random() * quotes.length)
+    setCurrentQuote(quotes[randomIndex])
+  }
+
   return (
     <>
     <div>
@@ -73,12 +99,12 @@ const Widgetsquote = () => {
                     <h3 className="font-semibold mb-2">☕ Quote of the Day</h3>
 
         <p id="quote">
-            "Don't watch the clock; do what it does. Keep going."
+            "{currentQuote.text}"
         </p>
 
-        <p id="author" className="mb-3">- Sam Levenson</p>
+        <p id="author" className="mb-3">- {currentQuote.author}</p>
 
-        <button id="newQuote" className="text-sm">
+        <button id="newQuote" className="text-sm" onClick={getNewQuote}>
             New Quote ↻
         </button>
 
