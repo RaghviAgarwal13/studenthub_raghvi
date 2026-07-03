@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import About from './pages/About'
+import Announcements from './pages/Announcements'
 import { useState, useEffect } from 'react'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
 
@@ -34,6 +35,7 @@ const App = () => {
       <Route path="/" element={<Home />}/>
       <Route path="/dashboard" element={<Dashboard />}/>
       <Route path="/about" element={<About />}/>
+      <Route path="/announcements" element={<Announcements />} />
      </Routes>
      <Footer />
     </BrowserRouter>
