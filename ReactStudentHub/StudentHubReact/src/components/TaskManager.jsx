@@ -1,60 +1,56 @@
 import React from 'react'
 import { useState } from 'react'
-import useLocalStorage from '../hooks/useLocalStorage'
+import useLocalStorage from '../hooks/useLocalStorage'//imports the custom hook
 
 const TaskManager = () => {
-  const [tasks, setTasks] = useLocalStorage('sh_tasks', [])
-  const [inputValue, setInputValue] = useState('')
-  const [editingId, setEditingId] = useState(null)
-  const [editValue, setEditValue] = useState('')
+  const [tasks, setTasks] = useLocalStorage('sh_tasks', [])//so that tasks remain even after refreshing the page
+  const [inputValue, setInputValue] = useState('') // text in the add-task box
+  const [editingId, setEditingId] = useState(null)// which task is being edited right now (null = none)
+  const [editValue, setEditValue] = useState('')// text in the edit box
 
   function addTask(){
     const text=inputValue.trim()
-    if(!text) return
+    if(!text) return // don't add empty tasks
     const newTask={
-      id: Date.now(),
+      id: Date.now(),//gives the currect timestamp as an id
       text:text,
       done:false
     }
-    setTasks([...tasks, newTask])
-    setInputValue('')
+    setTasks([...tasks, newTask])//// spread old tasks + add new one, so it's a new array
+    setInputValue('')//clears the input box
   }
-  function toggleTask(id){
+  function toggleTask(id){ // go through all tasks, flip done only for the one that matches
     setTasks(
       tasks.map(task =>
         task.id=== id ? {...task, done: !task.done} : task
       )
     )
   }
-  function deleteTask(id) {
+  function deleteTask(id) {// keep every task except the one being deleted
     setTasks(tasks.filter(task => task.id !== id))
   }
-  function startEditing(task) {
+  function startEditing(task) {// remember which task we're editing + load its current text
     setEditingId(task.id)
     setEditValue(task.text)
   }
   function saveEdit(id) {
     const text = editValue.trim()
-    if (!text) return
+    if (!text) return  //don't save empty edits
 
     setTasks(
       tasks.map(task =>
         task.id === id ? { ...task, text: text } : task
       )
     )
-    setEditingId(null)
+    setEditingId(null)// exit edit mode
     setEditValue('')
   }
-  function cancelEdit() {
+  function cancelEdit() {// exit edit mode without saving
     setEditingId(null)
     setEditValue('')
   }
   function handleInputKeyDown(e) {
-    if (e.key === 'Enter') addTask()
-  }
-  function handleEditKeyDown(e, id) {
-    if (e.key === 'Enter') saveEdit(id)
-    if (e.key === 'Escape') cancelEdit()
+    if (e.key === 'Enter') addTask()//enter key also adds task
   }
 
   return (
@@ -63,6 +59,7 @@ const TaskManager = () => {
         <div className=" newcomp bg-cafe-card rounded-2xl p-6 border border-amber-200 shadow-md min-h-[518px]" id="taskmanager">
     <h2 className="text-3xl font-playfair font-bold text-cafe-brown mb-4">Task Manager</h2>
 
+     {/* input row for adding a new task */}
     <div className=" flex gap-2 mb-4">
       <input
         type="text"
@@ -82,13 +79,14 @@ const TaskManager = () => {
       </button>
     </div>
 
+    {/* looping through tasks array to display each one */}
     <ul  className="space-y-2 max-h-64 overflow-y-auto">
         {tasks.map(task => (
           <li
             key={task.id}
             className="inputrow flex items-center gap-3 bg-amber-50 px-4 py-2 rounded-xl border border-amber-200 group"
           >
-            {editingId === task.id ? (
+            {editingId === task.id ? ( // if this task's id matches editingId, show edit mode
               <>
                 <input
                   type="text"
