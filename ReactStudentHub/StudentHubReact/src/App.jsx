@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import About from './pages/About'
 import { useState, useEffect } from 'react'
+import { BrowserRouter , Routes , Route } from 'react-router-dom'
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false) //initialized with false for light mode
@@ -27,11 +28,16 @@ const App = () => {
   }
   return (
     <>
-    <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
-    <Home/>
-    <Dashboard/>
-    <About/>
-    <Footer/>
+    <BrowserRouter>
+     <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
+     <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/dashboard" element={<Dashboard />}/>
+      <Route path="/about" element={<About />}/>
+     </Routes>
+     <Footer />
+    </BrowserRouter>
+    
     </>
   )
 }

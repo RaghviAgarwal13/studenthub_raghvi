@@ -6,7 +6,7 @@ import GitHubFinder from '../components/GitHubFinder'
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="page-fade">
         <section className="dashboard-section" id="dashboard">
             <Widgetsquote/>
             <div className="components-grid p-6  ">

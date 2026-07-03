@@ -1,21 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
     <>
-    <div className="hero">
+    <div className="page-fade">
+    <div className="hero" >
         <div className="hero-left">
     <div id="headinghome" className="font-playfair font-bold ">Your Study Cafe☕</div>
     <p id="phome">StudentHub is one cozy place for all of your student life-track tasks, monitor goals and a lot more.Consider it as your own campus productivity hub!!</p>
     <div className="hero-buttons">
 
-       <a className="btn" id="btn1" href="#dashboard">
-           Start Exploring
-       </a>
+       <Link className="btn" id="btn1" to="/dashboard">Start Exploring</Link>
 
-       <a className="btn" id="btn2" href="#about">
-           Learn More
-       </a>
+      <Link className="btn" id="btn2" to="/about">Learn More</Link>
+
 
     </div>
   </div>
@@ -24,6 +23,7 @@ const Home = () => {
     <img src="images/home1.png" alt="sticynoteimg"/>
 
   </div>
+    </div>
     </div>
     </>
   )

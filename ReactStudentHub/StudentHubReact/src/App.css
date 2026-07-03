@@ -501,3 +501,12 @@ html {
 .dark-mode #tasklist{
   color: #d4b896;
 }
+
+.page-fade {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
