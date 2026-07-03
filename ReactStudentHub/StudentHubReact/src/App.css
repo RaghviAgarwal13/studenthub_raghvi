@@ -455,6 +455,9 @@ html {
 .dark-mode #dashboard h1{
     color:#d4b896;
 }
+.dark-mode .dashboard-grid {
+    color:#d4b896;
+}
 .dark-mode .aboutclass{
     color:#7c5a3a;
 }
@@ -514,4 +517,7 @@ html {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+.dark-mode .card{
+   color:#d4b896;
 }
