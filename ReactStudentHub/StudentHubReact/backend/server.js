@@ -1,12 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const expenseRoutes = require('./routes/expenses');
 require('dotenv').config();
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use('/api/expenses', expenseRoutes);
 
 app.get('/', (req, res) => {
   res.send('StudentHub backend is running');
