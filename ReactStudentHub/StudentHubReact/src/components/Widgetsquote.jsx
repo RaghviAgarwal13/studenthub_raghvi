@@ -66,18 +66,15 @@ const Widgetsquote = () => {
             </div>
         </div>
 
-        {/* <!-- Goals --> */}
+        {/* <!-- Expense Tracker --> */}
         <div className="card goal-card">
-            <span className="icon"><i className="fa-solid fa-bullseye"></i></span>
-            <h3 className="font-playfair font-bold">WEEKLY GOALS</h3>
+            <span className="icon"><i className="fa-solid fa-indian-rupee-sign"></i></span>
+            <h3 className="font-playfair font-bold"><a href="#expensetracker">EXPENSE TRACKER</a></h3>
 
-            <p className="big-text">2 left</p>
+            <p className="big-text">₹450</p>
+            <br />
 
-            <p>5 of 7 done ✓</p>
-
-            <div className="progress-bar">
-                <div className="progress goal-progress"></div>
-            </div>
+            <p>Record all your expenses!</p>
         </div>
 
         {/* <!-- Streak --> */}
@@ -87,7 +84,7 @@ const Widgetsquote = () => {
             <p className="text-1xl font-bold mt-4 mb-4" id="streak">
                  25 min focus · 5 min break
             </p>
-
+            <br />
             <p>Keep Going!</p>
         </div>
 
