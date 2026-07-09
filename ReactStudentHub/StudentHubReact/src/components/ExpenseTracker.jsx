@@ -132,6 +132,7 @@ function handleAddExpense(e) {
             <option value="Food">Food</option>
             <option value="Transport">Transport</option>
             <option value="Study">Study</option>
+            <option value="Other">Other</option>
           </select>
           <button
             type="submit"
@@ -157,6 +158,7 @@ function handleAddExpense(e) {
           <option value="Food">Food</option>
           <option value="Transport">Transport</option>
           <option value="Study">Study</option>
+          <option value="Other">Other</option>
         </select>
       </div>
 

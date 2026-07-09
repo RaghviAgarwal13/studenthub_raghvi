@@ -11,14 +11,14 @@ const expenseSchema = new mongoose.Schema({
     required: [true, 'Amount is required'],
     min: [1, 'Amount must be greater than 0']
   },
-  category: {
+   category: {
     type: String,
     required: [true, 'Category is required'],
     enum: {
-      values: ['Food', 'Transport', 'Study'],
-      message: 'Category must be Food, Transport, or Study'
-    }
-  },
+      values: ['Food', 'Transport', 'Study', 'Other'],
+      message: 'Category must be Food, Transport, Study, or Other'
+      }
+    },
   date: {
     type: Date,
     default: Date.now
