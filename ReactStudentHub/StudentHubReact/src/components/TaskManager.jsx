@@ -56,7 +56,7 @@ const TaskManager = () => {
   return (
     <>
     <div>
-        <div className=" newcomp bg-cafe-card rounded-2xl p-6 border border-amber-200 shadow-md min-h-[518px]" id="taskmanager">
+        <div className=" newcomp bg-cafe-card rounded-2xl p-6 border border-amber-200 shadow-md min-h-[518px] " id="taskmanager">
     <h2 className="text-3xl font-playfair font-bold text-cafe-brown mb-4">Task Manager</h2>
 
      {/* input row for adding a new task */}

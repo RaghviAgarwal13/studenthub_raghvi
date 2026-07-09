@@ -135,7 +135,7 @@ const PomodoroTimer = () => {
   }
 
   return (
-    <div className="newcomp bg-cafe-card rounded-2xl p-6 border border-amber-200 shadow-md">
+    <div className="newcomp bg-cafe-card rounded-2xl p-6 border border-amber-200 shadow-md ">
       <h2 className="text-3xl font-playfair font-bold text-cafe-brown mb-4">Pomodoro Timer</h2>
 
       <div className="flex gap-4 mb-4">
