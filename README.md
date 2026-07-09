@@ -33,3 +33,13 @@ In week 3, StudentHub was converted into a React site.
 -Built a custom useLocalStorage hook to handle data persistence across components
 -Added an Announcements and Events page
 This was built using React, Vite, React Router, React Hooks (useState, useEffect), and custom hooks.
+
+# WEEK 4
+In week 4, I built a backend for StudentHub using Express and MongoDB, and connected it to a new Expense Tracker feature.
+-Set up an Express server with routes, models, and controllers (MVC structure)
+-Connected to MongoDB Atlas using Mongoose, with an Expense schema and validation rules
+-Built REST API endpoints (GET, POST, DELETE) for /api/expenses
+-Connected the React frontend to the backend using fetch and useEffect, replacing localStorage for this feature
+-Added a Category filter and a running Total summary
+-Tested all API routes using Postman
+This was built using Express.js, Node.js, MongoDB Atlas, Mongoose, REST APIs, CORS middleware, and Postman.
