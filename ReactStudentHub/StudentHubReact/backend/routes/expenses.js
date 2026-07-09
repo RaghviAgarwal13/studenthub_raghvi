@@ -24,10 +24,15 @@ router.post('/', async (req, res) => {
     const newExpense = await expense.save();
     res.status(201).json(newExpense);
   } catch (err) {
+    if (err.name === 'ValidationError') {
+      const messages = Object.values(err.errors).map(function (e) {
+        return e.message;
+      });
+      return res.status(400).json({ message: messages.join(', ') });
+    }
     res.status(400).json({ message: err.message });
   }
 });
-
 // DELETE an expense
 router.delete('/:id', async (req, res) => {
   try {

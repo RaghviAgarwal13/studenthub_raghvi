@@ -1,22 +1,28 @@
 const mongoose = require('mongoose');
 
-const expenseSchema = new mongoose.Schema({// defines the shape of every expense document ..what fields it has, and their types
+const expenseSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true //won't let you save an expense without a title/amount/category
+    required: [true, 'Title is required'],
+    trim: true
   },
   amount: {
     type: Number,
-    required: true
+    required: [true, 'Amount is required'],
+    min: [1, 'Amount must be greater than 0']
   },
   category: {
     type: String,
-    required: true
+    required: [true, 'Category is required'],
+    enum: {
+      values: ['Food', 'Transport', 'Study'],
+      message: 'Category must be Food, Transport, or Study'
+    }
   },
   date: {
-    type: Date,//defaults would current date if not provided one 
+    type: Date,
     default: Date.now
   }
 });
 
-module.exports = mongoose.model('Expense', expenseSchema);//turns the schema into a usable model, and tells MongoDB to create a collection called expenses 
+module.exports = mongoose.model('Expense', expenseSchema);

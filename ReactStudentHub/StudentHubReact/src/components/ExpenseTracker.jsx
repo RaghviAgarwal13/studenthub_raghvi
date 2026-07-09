@@ -5,6 +5,7 @@ function ExpenseTracker() {
   var [title, setTitle] = useState('');
   var [amount, setAmount] = useState('');
   var [category, setCategory] = useState('Food');
+  var [errorMsg, setErrorMsg] = useState('');
   var [filterCategory, setFilterCategory] = useState('All');
 
   var API_URL = 'http://localhost:5000/api/expenses';
@@ -26,37 +27,44 @@ function ExpenseTracker() {
       });
   }
 
-  function handleAddExpense(e) {
-    e.preventDefault();
+function handleAddExpense(e) {
+  e.preventDefault();
+  setErrorMsg('');
 
-    if (title.trim() === '' || amount === '') {
-      return;
-    }
-
-    var newExpense = {
-      title: title,
-      amount: Number(amount),
-      category: category
-    };
-
-    fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newExpense)
-    })
-      .then(function (res) {
-        return res.json();
-      })
-      .then(function (savedExpense) {
-        setExpenses(expenses.concat(savedExpense));
-        setTitle('');
-        setAmount('');
-        setCategory('Food');
-      })
-      .catch(function (err) {
-        console.log('Error adding expense: ' + err);
-      });
+  if (title.trim() === '' || amount === '' || Number(amount) <= 0) {
+    setErrorMsg('Please enter a title and an amount greater than 0');
+    return;
   }
+
+  var newExpense = {
+    title: title,
+    amount: Number(amount),
+    category: category
+  };
+
+  fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newExpense)
+  })
+    .then(function (res) {
+      if (!res.ok) {
+        return res.json().then(function (errData) {
+          throw new Error(errData.message);
+        });
+      }
+      return res.json();
+    })
+    .then(function (savedExpense) {
+      setExpenses(expenses.concat(savedExpense));
+      setTitle('');
+      setAmount('');
+      setCategory('Food');
+    })
+    .catch(function (err) {
+      setErrorMsg(err.message);
+    });
+}
 
   function handleDeleteExpense(id) {
     fetch(API_URL + '/' + id, {
@@ -132,6 +140,9 @@ function ExpenseTracker() {
             Add
           </button>
         </div>
+        {errorMsg !== '' && (
+  <p className="text-red-500 text-sm mb-4">{errorMsg}</p>
+         )}
       </form>
 
       {/* filter row */}
