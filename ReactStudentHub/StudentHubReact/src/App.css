@@ -1,3 +1,13 @@
+html, body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 header{
   background: linear-gradient(to right,#2b1a11,#3d2b1f,#2b1a11);
   font-family: 'Playfair Display',Georgia,serif;

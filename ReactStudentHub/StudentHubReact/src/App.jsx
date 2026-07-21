@@ -5,6 +5,9 @@ import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import About from './pages/About'
 import Announcements from './pages/Announcements'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import ProtectedRoute from './components/ProtectedRoute'
 import { useState, useEffect } from 'react'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
 
@@ -31,12 +34,20 @@ const App = () => {
     <>
     <BrowserRouter>
      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
-     <Routes>
+      <main style={{ flex: 1 }}>
+      <Routes>
       <Route path="/" element={<Home />}/>
-      <Route path="/dashboard" element={<Dashboard />}/>
+      <Route path="/login" element={<Login />}/>
+      <Route path="/signup" element={<Signup />}/>
+      <Route path="/dashboard" element={
+       <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+      }/>
       <Route path="/about" element={<About />}/>
       <Route path="/announcements" element={<Announcements />} />
-     </Routes>
+      </Routes>
+     </main>
      <Footer />
     </BrowserRouter>
     
