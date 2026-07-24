@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { API_URL } from '../config'
 
 function Signup() {
   var [name, setName] = useState('')
@@ -11,8 +12,6 @@ function Signup() {
 
   var navigate = useNavigate()
   var auth = useAuth()
-
-  var API_URL = 'http://localhost:5000/api/auth/signup'
 
   function handleSignup(e) {
     e.preventDefault()
@@ -29,7 +28,7 @@ function Signup() {
 
     setLoading(true)
 
-    fetch(API_URL, {
+    fetch(`${API_URL}/api/auth/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: name, email: email, password: password })

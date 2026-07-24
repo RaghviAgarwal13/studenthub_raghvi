@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { API_URL as BASE_URL } from '../config';
 
 function ExpenseTracker() {
   var [expenses, setExpenses] = useState([]);
@@ -12,7 +13,7 @@ function ExpenseTracker() {
   var [filterType, setFilterType] = useState('All');
 
   var auth = useAuth();
-  var API_URL = 'http://localhost:5000/api/expenses';
+  var API_URL = BASE_URL + '/api/expenses';
 
   useEffect(function () {
     fetchExpenses();

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { API_URL as BASE_URL } from '../config'
 
 function AdminPanel() {
   var [users, setUsers] = useState([])
   var [errorMsg, setErrorMsg] = useState('')
   var auth = useAuth()
 
-  var API_URL = 'http://localhost:5000/api/admin/users'
-
+  var API_URL = BASE_URL + '/api/admin/users'
   useEffect(function () {
     fetch(API_URL, {
       headers: { 'Authorization': 'Bearer ' + auth.token }
