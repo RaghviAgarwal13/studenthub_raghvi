@@ -10,6 +10,9 @@ import Signup from './pages/Signup'
 import ProtectedRoute from './components/ProtectedRoute'
 import { useState, useEffect } from 'react'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
+import Profile from './pages/Profile'
+import AdminPanel from './pages/AdminPanel'
+import AdminRoute from './components/AdminRoute'
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false) //initialized with false for light mode
@@ -46,6 +49,16 @@ const App = () => {
       }/>
       <Route path="/about" element={<About />}/>
       <Route path="/announcements" element={<Announcements />} />
+      <Route path="/profile" element={
+      <ProtectedRoute>
+         <Profile />
+      </ProtectedRoute>
+       }/>
+      <Route path="/admin" element={
+       <AdminRoute>
+       <AdminPanel />
+       </AdminRoute>
+       }/>
       </Routes>
      </main>
      <Footer />
