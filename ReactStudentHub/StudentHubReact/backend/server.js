@@ -9,7 +9,14 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: [
+    'https://studenthub-raghvi.vercel.app',
+    'http://localhost:5173'
+  ],
+  credentials: true
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/auth', authRoutes);
