@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 html, body {
   height: 100%;
 }
@@ -345,7 +353,7 @@ html {
         font-size: 2rem;
     }
     .aboutclass p{
-      font-size: 1px;
+      font-size: 1rem;
     }
 
     /* FOOTER */
@@ -382,7 +390,8 @@ html {
 
     padding:12px;
 
-    width:250px;
+    width: 100%;
+    max-width: 250px;
 
     border-radius:10px;
 

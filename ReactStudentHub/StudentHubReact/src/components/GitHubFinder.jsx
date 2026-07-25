@@ -46,7 +46,7 @@ const GithubFinder = () => {
 
   return (
     <section className="github-section mt-10 mb-10">
-      <h1 className="mt-2 mb-1 p-2 font-playfair font-bold text-3xl">
+      <h1 className="mt-2 mb-1 p-2 font-playfair font-bold text-2xl sm:text-3xl">
         <i className="fa-solid fa-magnifying-glass"></i> Github Profile Finder
       </h1>
       <p>Search any Github profile.</p>

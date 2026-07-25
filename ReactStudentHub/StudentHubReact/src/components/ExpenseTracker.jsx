@@ -152,7 +152,7 @@ function ExpenseTracker() {
 
       {/* add expense form */}
       <form onSubmit={handleAddExpense} className="flex flex-col gap-2 mb-4">
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <input
             type="text"
             placeholder="Title"
@@ -168,7 +168,7 @@ function ExpenseTracker() {
             className="inputrow w-28 px-4 py-2 rounded-xl border border-amber-300 bg-amber-50 text-cafe-brown placeholder-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400"
           />
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <select
             value={type}
             onChange={function (e) { setType(e.target.value); }}
