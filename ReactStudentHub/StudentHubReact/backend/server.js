@@ -18,6 +18,30 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
+
+// Serverless-safe MongoDB connection
+let isConnected = false;
+
+async function connectDB() {
+  if (isConnected) {
+    return;
+  }
+  await mongoose.connect(process.env.MONGO_URI);
+  isConnected = true;
+  console.log('MongoDB connected');
+}
+
+// Make sure DB is connected before handling any request
+app.use(async function (req, res, next) {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.log('MongoDB connection error: ' + err);
+    res.status(500).json({ message: 'Database connection failed' });
+  }
+});
+
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
@@ -25,19 +49,14 @@ app.use('/api/admin', adminRoutes);
 app.get('/', (req, res) => {
   res.send('StudentHub backend is running');
 });
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log('MongoDB connected');
-  })
-  .catch((err) => {
-    console.log('MongoDB connection error: ' + err);
-  });
 
 const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log('Server running on port ' + PORT);
+  connectDB().then(function () {
+    app.listen(PORT, () => {
+      console.log('Server running on port ' + PORT);
+    });
   });
 }
 
