@@ -13,6 +13,7 @@ import { BrowserRouter , Routes , Route } from 'react-router-dom'
 import Profile from './pages/Profile'
 import AdminPanel from './pages/AdminPanel'
 import AdminRoute from './components/AdminRoute'
+import Analytics from './pages/Analytics'
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false) //initialized with false for light mode
@@ -58,6 +59,11 @@ const App = () => {
        <AdminRoute>
        <AdminPanel />
        </AdminRoute>
+       }/>
+       <Route path="/analytics" element={
+       <ProtectedRoute>
+         <Analytics />
+       </ProtectedRoute>
        }/>
       </Routes>
      </main>
