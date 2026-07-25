@@ -60,7 +60,7 @@ const TaskManager = () => {
     <h2 className="text-3xl font-playfair font-bold text-cafe-brown mb-4">Task Manager</h2>
 
      {/* input row for adding a new task */}
-    <div className=" flex gap-2 mb-4">
+    <div className="flex flex-wrap gap-2 mb-4">
       <input
         type="text"
         id="taskInput"

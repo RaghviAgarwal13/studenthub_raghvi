@@ -138,7 +138,7 @@ const PomodoroTimer = () => {
     <div className="newcomp bg-cafe-card rounded-2xl p-6 border border-amber-200 shadow-md ">
       <h2 className="text-3xl font-playfair font-bold text-cafe-brown mb-4">Pomodoro Timer</h2>
 
-      <div className="flex gap-4 mb-4">
+      <div className="flex flex-wrap gap-2 mb-4">
         <div className="flex-1">
           <label className="text-cafe-mid font-semibold text-xs block mb-1">Focus (minutes)</label>
           <input
@@ -163,7 +163,7 @@ const PomodoroTimer = () => {
         </div>
       </div>
 
-      <div className="flex gap-2 mb-6">
+      <div className="flex flex-wrap gap-2 mb-4">
         <button
           onClick={() => switchMode(true)}
           className={isFocusMode ? 'flex-1 py-2 rounded-xl bg-cafe-brown text-cafe-gold font-semibold text-sm transition-all' : 'flex-1 py-2 rounded-xl bg-transparent border border-cafe-mid text-cafe-mid font-semibold text-sm transition-all'}
@@ -185,7 +185,7 @@ const PomodoroTimer = () => {
         <p className="text-cafe-mid font-semibold mt-2">{label}</p>
       </div>
 
-      <div className="flex gap-3 justify-center mb-6">
+      <div className="flex flex-wrap gap-3 justify-center mb-6">
         <button onClick={startTimer} className=" pmdr border border-cafe-mid text-cafe-brown px-6 py-2 rounded-xl font-semibold hover:bg-cafe-brown transition-all hover:text-cafe-gold">
           Start
         </button>
