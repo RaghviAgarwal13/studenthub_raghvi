@@ -4,10 +4,26 @@ const mongoose = require('mongoose');
 const expenseRoutes = require('./routes/expenses');
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
+const morgan = require('morgan');
+const rateLimit = require('express-rate-limit');
 
 require('dotenv').config();
 
 const app = express();
+app.use(morgan('dev'));
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per window
+  message: { message: 'Too many requests. Please try again later.' }
+});
+app.use(limiter);
+
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10, // stricter limit for login/signup to prevent brute-force
+  message: { message: 'Too many login attempts. Please try again later.' }
+});
 
 const corsOptions = {
   origin: [
