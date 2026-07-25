@@ -43,3 +43,60 @@ In week 4, I built a backend for StudentHub using Express and MongoDB, and conne
 -Added a Category filter and a running Total summary
 -Tested all API routes using Postman
 This was built using Express.js, Node.js, MongoDB Atlas, Mongoose, REST APIs, CORS middleware, and Postman.
+
+# WEEK 5
+In week 5, I added authentication to StudentHub using JWT.
+- Created a User model with bcrypt password hashing
+- Built signup and login routes with proper error messages (wrong password, duplicate email, empty fields, etc.)
+- Added middleware to protect routes so only logged in users can access them
+- Added role based access with an Admin Panel for admin users
+- Connected the Expense Tracker to individual user accounts and added Income/Expense types with a balance card
+- Added a Profile page and a welcome message on the dashboard
+- Deployed the frontend and backend separately on Vercel
+This was built using JWT, bcryptjs, Express middleware, MongoDB, and React Context API.
+
+# WEEK 6
+In week 6, I focused on fixing bugs and polishing the app for final submission.
+- Fixed a MongoDB connection bug that only showed up after deploying to Vercel
+- Set up CORS properly so only my frontend can talk to my backend
+- Added logging and rate limiting for basic security
+- Fixed responsiveness issues on mobile for a few components
+- Built an Analytics page with charts (my wildcard feature) using Recharts
+- Updated the README and tested everything on the live site
+This was built using Morgan, express-rate-limit, and Recharts.
+
+# Live Links
+- Frontend: https://studenthub-raghvi.vercel.app/
+- Backend: https://studenthub-raghvi-backend.vercel.app/
+
+# Tech Stack
+- Frontend: React, Vite, React Router, Tailwind CSS, Recharts
+- Backend: Node.js, Express.js, MongoDB Atlas, Mongoose
+- Auth: JWT (jsonwebtoken), bcryptjs
+- Other: Axios/Fetch, CORS, Morgan, express-rate-limit
+- Deployment: Vercel (frontend and backend, separately)
+
+# Running Locally
+
+## Backend
+1. Navigate to the backend folder: `cd backend`
+2. Install dependencies: `npm install`
+3. Create a `.env` file in the backend folder with:
+    -MONGO_URI=your_mongodb_atlas_connection_string
+    -JWT_SECRET=any_long_random_string
+    -PORT=5000
+4. Start the server: `node server.js`
+5. Backend runs on `http://localhost:5000`
+
+## Frontend
+1. Navigate to the frontend folder (project root of the React app)
+2. Install dependencies: `npm install`
+3. Create a `.env` file in the frontend root with:  VITE_API_URL=http://localhost:5000
+4. Start the dev server: `npm run dev`
+5. Frontend runs on `http://localhost:5173`
+
+# Environment Variables
+- MONGO_URI - MongoDB Atlas connection string (backend)
+- JWT_SECRET - secret key used to sign JWT tokens (backend)
+- PORT - port the backend runs on locally (backend)
+- VITE_API_URL - base URL the frontend uses to reach the backend (frontend)
